@@ -9,40 +9,60 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class Solution {
-
-    public Node lowestCommonAncestor(Node p, Node q) {
-        Node p1 = p;
-        Node q1 = q;
-        int pLen = 0;
-        int qLen = 0;
-        while (p1 != null) {
-            pLen++;
-            p1 = p1.parent;
+    
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode[] nodes) {
+        HashSet<Integer> values = new HashSet<>();
+        for (TreeNode t : nodes) {
+            values.add(t.val);
         }
-        while (q1 != null) {
-            qLen++;
-            q1 = q1.parent;
-        }
-        if (pLen > qLen) {
-            int dif = pLen - qLen;
-            for (int i = 1; i <= dif; i++) {
-                p = p.parent;
-            }
-        } else if (pLen < qLen) {
-            int dif = qLen - pLen;
-            for (int i = 1; i <= dif; i++) {
-                q = q.parent;
-            }
-        }
-        while (p != null && q != null) {
-            if (p == q) {
-                return p;
-            }
-            p = p.parent;
-            q = q.parent;
-        }
-        return null;
+        return find(root, values);
     }
+
+    public TreeNode find(TreeNode root, HashSet<Integer> values) {
+        if (root == null || values.contains(root.val)) {
+            return root;
+        }
+        TreeNode left = find(root.left, values);
+        TreeNode right = find(root.right, values);
+        if (left != null && right != null) {
+            return root;
+        }
+        return left == null ? right : left;
+    }
+
+//     public Node lowestCommonAncestor(Node p, Node q) {
+//         Node p1 = p;
+//         Node q1 = q;
+//         int pLen = 0;
+//         int qLen = 0;
+//         while (p1 != null) {
+//             pLen++;
+//             p1 = p1.parent;
+//         }
+//         while (q1 != null) {
+//             qLen++;
+//             q1 = q1.parent;
+//         }
+//         if (pLen > qLen) {
+//             int dif = pLen - qLen;
+//             for (int i = 1; i <= dif; i++) {
+//                 p = p.parent;
+//             }
+//         } else if (pLen < qLen) {
+//             int dif = qLen - pLen;
+//             for (int i = 1; i <= dif; i++) {
+//                 q = q.parent;
+//             }
+//         }
+//         while (p != null && q != null) {
+//             if (p == q) {
+//                 return p;
+//             }
+//             p = p.parent;
+//             q = q.parent;
+//         }
+//         return null;
+//     }
 
 //    public int[][] insert(int[][] intervals, int[] newInterval) {
 //        int leftBound = newInterval[0];
