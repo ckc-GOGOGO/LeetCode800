@@ -10,6 +10,50 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+      //Leetcode 300
+//    public int lengthOfLIS(int[] nums) {
+//        int[] tail = new int[nums.length + 1];
+//        int len = 1;
+//        tail[len] = nums[0];
+//        for (int i = 1; i < nums.length; i++) {
+//            if (nums[i] > tail[len]) {
+//                len++;
+//                tail[len] = nums[i];
+//                continue;
+//            }
+//            int left = 1;
+//            int right = len;
+//            while (left < right) {
+//                int mid = left + (right - left) / 2;
+//                if (tail[mid] < nums[i]) {
+//                    left = mid + 1;
+//                } else {
+//                    right = mid;
+//                }
+//            }
+//            tail[left] = Math.min(nums[i], tail[left]);
+//        }
+//        return len;
+//    }
+
+
+//
+//    //Leetcode 35
+//    public int searchInsert(int[] nums, int target) {
+//        int left = 0;
+//        int right = nums.length;
+//        while (left < right) {
+//            int mid = left + (right - left) / 2;
+//            if (nums[mid] < target) {
+//                left = mid + 1;
+//            } else {
+//                right = mid;
+//            }
+//        }
+//        return left;
+//    }
+    
+    
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode[] nodes) {
         HashSet<Integer> values = new HashSet<>();
         for (TreeNode t : nodes) {
