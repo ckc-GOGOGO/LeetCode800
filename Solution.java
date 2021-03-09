@@ -10,6 +10,41 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//    //Leetcode 354
+//    public int maxEnvelopes(int[][] envelopes) {
+//        Arrays.sort(envelopes, new Comparator<int[]>() {
+//            @Override
+//            public int compare(int[] o1, int[] o2) {
+//                if (o1[0] == o2[0]) {
+//                    return o2[1] - o1[1];
+//                }
+//                return o1[0] - o2[0];
+//            }
+//        });
+//        int[] tail = new int[envelopes.length + 1];
+//        int len = 1;
+//        tail[len] = envelopes[0][1];
+//        for (int i = 1; i < envelopes.length; i++) {
+//            if (envelopes[i][1] > tail[len]) {
+//                len++;
+//                tail[len] = envelopes[i][1];
+//                continue;
+//            }
+//            int left = 1;
+//            int right = len;
+//            while (left < right) {
+//                int mid = left + (right - left) / 2;
+//                if (tail[mid] < envelopes[i][1]) {
+//                    left = mid + 1;
+//                } else {
+//                    right = mid;
+//                }
+//            }
+//            tail[left] = Math.min(envelopes[i][1], tail[left]);
+//        }
+//        return len;
+//    }
+    
       //Leetcode 300
 //    public int lengthOfLIS(int[] nums) {
 //        int[] tail = new int[nums.length + 1];
