@@ -10,6 +10,37 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//    //leetcode 253
+//    public int minMeetingRooms(int[][] intervals) {
+//        Arrays.sort(intervals, new Comparator<int[]>() {
+//            @Override
+//            public int compare(int[] o1, int[] o2) {
+//                return o1[0] - o2[0];
+//            }
+//        });
+//        PriorityQueue<int[]> rooms = new PriorityQueue<>(new Comparator<int[]>() {
+//            @Override
+//            public int compare(int[] o1, int[] o2) {
+//                return o1[1] - o2[1];
+//            }
+//        });
+//        for (int[] inteval : intervals) {
+//            if (rooms.size() == 0) {
+//                rooms.add(inteval);
+//                continue;
+//            }
+//            int[] firstEnd = rooms.peek();
+//            if (firstEnd[1] <= inteval[0]) {
+//                rooms.poll();
+//                rooms.add(inteval);
+//            } else {
+//                rooms.add(inteval);
+//            }
+//        }
+//        return rooms.size();
+//
+//    }
+    
 //    //leetcode 74
 //    public boolean searchMatrix(int[][] matrix, int target) {
 //        int up = 0;
