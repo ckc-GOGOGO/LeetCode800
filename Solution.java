@@ -10,6 +10,50 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//    //leetcode 74
+//    public boolean searchMatrix(int[][] matrix, int target) {
+//        int up = 0;
+//        int down = matrix.length - 1;
+//        int row = -1;
+//        while (up <= down) {
+//            int mid = (up + down) / 2;
+//            if (target >= matrix[mid][0] && target <= matrix[mid][matrix[mid].length - 1]) {
+//                row = mid;
+//                break;
+//            } else if (target < matrix[mid][0]) {
+//                down = mid - 1;
+//            } else {
+//                up = mid + 1;
+//            }
+//        }
+//        if (row == -1) return false;
+//        int left = 0;
+//        int right = matrix[0].length - 1;
+//        while (left <= right) {
+//            int mid = (left + right) / 2;
+//            if (matrix[row][mid] == target) return true;
+//            else if (matrix[row][mid] > target) right = mid - 1;
+//            else left = mid + 1;
+//        }
+//        return false;
+//    }
+
+
+    // leetcode 1047
+//    public String removeDuplicates(String S) {
+//        char[] array = S.toCharArray();
+//        int tail = -1;
+//        for (int i = 0; i < S.length(); i++) {
+//            if (tail == -1 || array[i] != array[tail]) {
+//                tail++;
+//                array[tail] = array[i];
+//            } else {
+//                tail--;
+//            }
+//        }
+//        return new String(array, 0, tail + 1);
+//    }
+    
 //    //Leetcode 354
 //    public int maxEnvelopes(int[][] envelopes) {
 //        Arrays.sort(envelopes, new Comparator<int[]>() {
