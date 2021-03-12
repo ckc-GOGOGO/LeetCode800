@@ -10,6 +10,48 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+        //leetcode 986
+//    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
+//        if (firstList.length == 0 || secondList.length == 0) return new int[0][0];
+//        ArrayList<int[]> result = new ArrayList<>();
+//        int i = 0;
+//        int j = 0;
+//        int right = -1;
+//        while (i < firstList.length || j < secondList.length) {
+//            if (j >= secondList.length || (i < firstList.length && firstList[i][0] < secondList[j][0])) {
+//                if (firstList[i][0] <= right) {
+//                    result.add(new int[]{firstList[i][0], Math.min(right, firstList[i][1])});
+//                }
+//                right = Math.max(firstList[i][1], right);
+//                i++;
+//            } else {
+//                if (secondList[j][0] <= right) {
+//                    result.add(new int[]{secondList[j][0], Math.min(right, secondList[j][1])});
+//                }
+//                right = Math.max(right, secondList[j][1]);
+//                j++;
+//            }
+//        }
+//        return result.toArray(new int[result.size()][]);
+//    }
+//
+//    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
+//        int i = 0;
+//        int j = 0;
+//        ArrayList<int[]> result = new ArrayList<>();
+//        while (i < firstList.length && j < secondList.length) {
+//            int maxLeft = Math.max(firstList[i][0], secondList[j][0]);
+//            int minRight = Math.min(firstList[i][1], secondList[j][1]);
+//            if (maxLeft <= minRight) {
+//                result.add(new int[]{maxLeft, minRight});
+//            }
+//            if (firstList[i][1] < secondList[j][1]) {
+//                i++;
+//            } else j++;
+//        }
+//        return result.toArray(new int[result.size()][]);
+//    }
+    
 //    //leetcode 253
 //    public int minMeetingRooms(int[][] intervals) {
 //        Arrays.sort(intervals, new Comparator<int[]>() {
