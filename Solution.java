@@ -10,6 +10,36 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+    
+//     // leetcode 57
+//     public int[][] insert(int[][] intervals, int[] newInterval) {
+//         int leftBound = newInterval[0];
+//         int rightBound = newInterval[1];
+//         boolean isFirst = true;
+//         LinkedList<int[]> result = new LinkedList<>();
+//         for (int i = 0; i < intervals.length; i++) {
+//             if (intervals[i][1] < leftBound) {
+//                 result.add(intervals[i]);
+//             } else if (intervals[i][0] > rightBound) {
+//                 if (isFirst) {
+//                     int[] newInter = {leftBound, rightBound};
+//                     result.add(newInter);
+//                     isFirst = false;
+//                 }
+//                 result.add(intervals[i]);
+//             } else {
+//                 leftBound = Math.min(leftBound, intervals[i][0]);
+//                 rightBound = Math.max(rightBound, intervals[i][1]);
+//             }
+//         }
+//         if (isFirst) {
+//             int[] newInter = {leftBound, rightBound};
+//             result.add(newInter);
+//         }
+//
+//         return result.toArray(new int[result.size()][]);
+//     }
+    
         //leetcode 986
 //    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
 //        if (firstList.length == 0 || secondList.length == 0) return new int[0][0];
