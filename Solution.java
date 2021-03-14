@@ -10,6 +10,51 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//     leetcode 1272
+//     public List<List<Integer>> removeInterval(int[][] intervals, int[] toBeRemoved) {
+//         ArrayList<List<Integer>> result = new ArrayList<>();
+
+//         for (int i = 0; i < intervals.length; i++) {
+
+//             int minRight = Math.min(toBeRemoved[1], intervals[i][1]);
+//             int maxLeft = Math.max(toBeRemoved[0], intervals[i][0]);
+//             if (maxLeft < minRight) {
+
+//                 if (intervals[i][0] < maxLeft) {
+//                     if (intervals[i][1] == minRight) {
+//                         LinkedList<Integer> l = new LinkedList<>();
+//                         l.addLast(intervals[i][0]);
+//                         l.addLast(maxLeft);
+//                         result.add(l);
+//                     } else {
+//                         LinkedList<Integer> l = new LinkedList<>();
+//                         l.addLast(intervals[i][0]);
+//                         l.addLast(maxLeft);
+//                         result.add(l);
+//                         LinkedList<Integer> l1 = new LinkedList<>();
+//                         l1.addLast(toBeRemoved[1]);
+//                         l1.addLast(intervals[i][1]);
+//                         result.add(l1);
+//                     }
+//                 } else {
+//                     if (intervals[i][1] != minRight) {
+//                         LinkedList<Integer> l = new LinkedList<>();
+//                         l.addLast(minRight);
+//                         l.addLast(intervals[i][1]);
+//                         result.add(l);
+//                     }
+//                 }
+
+//             } else {
+//                 LinkedList<Integer> l = new LinkedList<>();
+//                 l.addLast(intervals[i][0]);
+//                 l.addLast(intervals[i][1]);
+//                 result.add(l);
+//             }
+//         }
+//         return result;
+//     }
+    
     
 //     // leetcode 57
 //     public int[][] insert(int[][] intervals, int[] newInterval) {
