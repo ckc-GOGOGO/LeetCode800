@@ -9,6 +9,18 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class Solution {
+    
+//    leetcode 287
+//    public int findDuplicate(int[] nums) {
+//        int val = nums[0];
+//        while (nums[val] != -1) {
+//            int tmp = nums[val];
+//            nums[val] = -1;
+//            val = tmp;
+//        }
+//        return val;
+//    }    
+
 //    //leetcode 452
 //    public static void main(String[] args) {
 //        int[][] test = {{-2147483646, -2147483645}, {2147483646, 2147483647}};
