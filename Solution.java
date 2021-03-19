@@ -9,6 +9,31 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class Solution {
+//    //leetcode 452
+//    public static void main(String[] args) {
+//        int[][] test = {{-2147483646, -2147483645}, {2147483646, 2147483647}};
+//        System.out.println(new Solution().findMinArrowShots(test));
+//    }
+//
+//    public int findMinArrowShots(int[][] points) {
+//        if (points.length == 0) return 0;
+//        Arrays.sort(points, new Comparator<int[]>() {
+//            @Override
+//            public int compare(int[] o1, int[] o2) {
+//                if (o1[1] == o2[1]) return 0;
+//                return o1[1] > o2[1] ? 1 : -1;
+//            }
+//        });
+//        int result = 1;
+//        int right = points[0][1];
+//        for (int i = 1; i < points.length; i++) {
+//            if (points[i][0] > right) {
+//                result++;
+//                right = points[i][1];
+//            }
+//        }
+//        return result;
+//    }
     
 //    leetcode 137
 //    public int singleNumber(int[] nums) {
