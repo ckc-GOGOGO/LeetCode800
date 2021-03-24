@@ -10,6 +10,32 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//    LeetCode 456
+//    public static void main(String[] args) {
+//        int[] test = {1, 2, 3, 4};
+//        System.out.println(new Solution().find132pattern(test));
+//    }
+//
+//    public boolean find132pattern(int[] nums) {
+//        if (nums.length < 3) return false;
+//        LinkedList<Integer> stack = new LinkedList<>();
+//        int[] minLeft = new int[nums.length];
+//        minLeft[0] = Integer.MAX_VALUE;
+//        for (int i = 1; i < nums.length; i++) {
+//            minLeft[i] = Math.min(minLeft[i - 1], nums[i - 1]);
+//        }
+//        stack.addLast(nums[nums.length - 1]);
+//        for (int i = nums.length - 2; i > 0; i--) {
+//            int maxRight = Integer.MIN_VALUE;
+//            while (stack.size() != 0 && stack.getLast() < nums[i]) {
+//                maxRight = Math.max(maxRight, stack.removeLast());
+//            }
+//            stack.addLast(nums[i]);
+//            if (maxRight > minLeft[i]) return true;
+//        }
+//        return false;
+//    }
+    
 //    leetcode 287
 //    public int findDuplicate(int[] nums) {
 //        int val = nums[0];
