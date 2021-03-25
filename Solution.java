@@ -10,6 +10,45 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//    leetCode82
+//    public ListNode deleteDuplicates(ListNode head) {
+//        ListNode newHead = new ListNode(0);
+//        newHead.next = head;
+//        ListNode current = newHead;
+//        while (current.next != null) {
+//            ListNode p = current.next;
+//            int val = p.val;
+//            int count = 1;
+//            while (p.next != null && p.next.val == val) {
+//                p = p.next;
+//                count++;
+//            }
+//            if (count == 1) {
+//                current = current.next;
+//            } else {
+//                current.next = p.next;
+//            }
+//        }
+//        return newHead.next;
+//    }
+
+//    leetCode83
+//    public ListNode deleteDuplicates(ListNode head) {
+//        if (head == null || head.next == null) return head;
+//        ListNode p1 = head;
+//        ListNode p2 = head.next;
+//        while (p2 != null) {
+//            if (p1.val == p2.val) {
+//                p1.next = p2.next;
+//                p2 = p1.next;
+//            } else {
+//                p1 = p2;
+//                p2 = p2.next;
+//            }
+//        }
+//        return head;
+//    }
+    
 //    LeetCode 456
 //    public static void main(String[] args) {
 //        int[] test = {1, 2, 3, 4};
