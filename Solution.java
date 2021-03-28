@@ -10,6 +10,33 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//    Leetcode 257    
+//    ArrayList<String> result = new ArrayList<>();
+//
+//    public List<String> binaryTreePaths(TreeNode root) {
+//        if (root == null) return result;
+//        LinkedList<Integer> path = new LinkedList<>();
+//        addNode(path, root);
+//        return result;
+//    }
+//
+//    public void addNode(LinkedList<Integer> path, TreeNode root) {
+//        path.addLast(root.val);
+//        if (root.left == null && root.right == null) {
+//            Iterator<Integer> it = path.listIterator();
+//            StringBuilder sb = new StringBuilder();
+//            while (it.hasNext()) {
+//                sb.append(it.next()).append("->");
+//            }
+//            sb.deleteCharAt(sb.length() - 1);
+//            sb.deleteCharAt(sb.length() - 1);
+//            result.add(sb.toString());
+//        }
+//        if(root.left != null) addNode(path,root.left);
+//        if(root.right != null) addNode(path,root.right);
+//        path.removeLast();
+//    }
+    
 //    leetCode82
 //    public ListNode deleteDuplicates(ListNode head) {
 //        ListNode newHead = new ListNode(0);
