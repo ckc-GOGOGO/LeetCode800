@@ -10,6 +10,20 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+    
+//    leetcode 101
+//    public boolean isSymmetric(TreeNode root) {
+//        if (root == null) return true;
+//        return judge(root.left, root.right);
+//    }
+//
+//    public boolean judge(TreeNode left, TreeNode right) {
+//        if (left == null && right == null) return true;
+//        if (left == null || right == null) return false;
+//        if (left.val != right.val) return false;
+//        return judge(left.right, right.left) && judge(left.left, right.right);
+//    }
+    
 //    Leetcode 257    
 //    ArrayList<String> result = new ArrayList<>();
 //
