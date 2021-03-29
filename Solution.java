@@ -10,6 +10,28 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+
+//    leetcode 112    
+//    boolean result = false;
+//
+//    public boolean hasPathSum(TreeNode root, int targetSum) {
+//        if (root == null) return false;
+//        getSum(root, 0, targetSum);
+//        return result;
+//    }
+//
+//    public void getSum(TreeNode root, int sum, int targetSum) {
+//        sum += root.val;
+//        if (root.left == null && root.right == null) {
+//            if (sum == targetSum) result = true;
+//            return;
+//        }
+//
+//        if (root.left != null) getSum(root.left, sum, targetSum);
+//        if (root.right != null) getSum(root.right, sum, targetSum);
+//
+//    }
+    
     
 //    leetcode 101
 //    public boolean isSymmetric(TreeNode root) {
