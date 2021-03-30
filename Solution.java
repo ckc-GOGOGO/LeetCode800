@@ -10,6 +10,25 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//    leetcode 129    
+//    int result = 0;
+//
+//    public int sumNumbers(TreeNode root) {
+//        if (root == null) return result;
+//        getSum(root, 0);
+//        return result;
+//    }
+//
+//    public void getSum(TreeNode root, int sum) {
+//        sum = sum * 10 + root.val;
+//        if (root.left == null && root.right == null) {
+//            result += sum;
+//            return;
+//        }
+//        if (root.left != null) getSum(root.left, sum);
+//        if (root.right != null) getSum(root.right, sum);
+//    }
+    
 
 //    leetcode 112    
 //    boolean result = false;
