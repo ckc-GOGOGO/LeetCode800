@@ -10,6 +10,29 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+    
+//    leetcode 96    
+//    public static void main(String[] args) {
+//        System.out.println(new NewSolution().numTrees(3));
+//    }
+//
+//    public int numTrees(int n) {
+//        int[] dp = new int[n + 1];
+//        dp[1] = 1;
+//        for (int i = 2; i <= n; i++) {
+//            for (int j = 1; j <= i; j++) {
+//                int left = j - 1;
+//                int right = i - j;
+//                int count = 0;
+//                if (left == 0) count = dp[right];
+//                else if (right == 0) count = dp[left];
+//                else count = dp[left] * dp[right];
+//                dp[i] += count;
+//            }
+//        }
+//        return dp[n];
+//    }    
+    
 //    leetcode 129    
 //    int result = 0;
 //
