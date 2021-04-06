@@ -11,6 +11,32 @@ import java.util.concurrent.*;
 public class Solution {
     
     
+//    leetcode 437
+//    int result = 0;
+//
+//    public int pathSum(TreeNode root, int sum) {
+//        HashMap<Integer, Integer> map = new HashMap<>();
+//        map.put(0, 1);
+//        findSum(root, 0, sum, map);
+//        return result;
+//    }
+//
+//    public void findSum(TreeNode root, int nowSum, int target, HashMap<Integer, Integer> map) {
+//        if (root == null) return;
+//        nowSum += root.val;
+//        if (map.containsKey(nowSum - target)) {
+//            result += map.get(nowSum - target);
+//        }
+//        if (map.containsKey(nowSum)) {
+//            map.put(nowSum, map.get(nowSum) + 1);
+//        } else {
+//            map.put(nowSum, 1);
+//        }
+//        findSum(root.left, nowSum, target, map);
+//        findSum(root.right, nowSum, target, map);
+//        map.put(nowSum, map.get(nowSum) - 1);
+//    }    
+    
 //    leetcode 96    
 //    public static void main(String[] args) {
 //        System.out.println(new NewSolution().numTrees(3));
