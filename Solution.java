@@ -11,6 +11,27 @@ import java.util.concurrent.*;
 public class Solution {
     
     
+//    leetcode331
+//    public static void main(String[] args) {
+//        String test = "9,9,91,#,#,9,#,49,#,#,#";
+//        System.out.println(new NewSolution().isValidSerialization(test));
+//    }
+//
+//    public boolean isValidSerialization(String preorder) {
+//        int need = 1;
+//        for (int i = 0; i < preorder.length(); i++) {
+//            if (need == 0) return false;
+//            if (preorder.charAt(i) == '#') {
+//                need--;
+//            }
+//            if (preorder.charAt(i) >= '0' && preorder.charAt(i) <= '9') {
+//                while (i + 1 < preorder.length() && preorder.charAt(i + 1) >= '0' && preorder.charAt(i + 1) <= '9') i++;
+//                need++;
+//            }
+//        }
+//        return need == 0;
+//    }    
+    
 //    leetcode 437
 //    int result = 0;
 //
