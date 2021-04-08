@@ -10,6 +10,34 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+
+    
+//    leetcode 95    
+//    public List<TreeNode> generateTrees(int n) {
+//        return buildTree(1, n);
+//    }
+//
+//    public List<TreeNode> buildTree(int left, int right) {
+//        List<TreeNode> result = new ArrayList<>();
+//        if (left > right) {
+//            result.add(null);
+//            return result;
+//        }
+//        for (int i = left; i <= right; i++) {
+//            List<TreeNode> leftNode = buildTree(left, i - 1);
+//            List<TreeNode> rightNode = buildTree(i + 1, right);
+//            for (int i1 = 0; i1 < leftNode.size(); i1++) {
+//                for (int i2 = 0; i2 < rightNode.size(); i2++) {
+//                    TreeNode node = new TreeNode(i);
+//                    node.left = leftNode.get(i1);
+//                    node.right = rightNode.get(i2);
+//                    result.add(node);
+//                }
+//            }
+//        }
+//        return result;
+//    }    
+    
     
 //    leetcode331
 //    public static void main(String[] args) {
