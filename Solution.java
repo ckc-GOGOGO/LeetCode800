@@ -10,7 +10,114 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+//    leetcode124
+//    int result = Integer.MIN_VALUE;
+//
+//    public int maxPathSum(TreeNode root) {
+//        dfs(root);
+//        return result;
+//    }
+//
+//    public int dfs(TreeNode root) {
+//        if (root == null) return 0;
+//        int leftMax = Math.max(dfs(root.left),0);
+//        int rightMax = Math.max(dfs(root.right),0);
+//        int sum = leftMax + rightMax + root.val;
+//        result = Math.max(result, sum);
+//        return Math.max(leftMax, rightMax) + root.val;
+//    }
 
+
+//    public static void main(String[] args) {
+//        char[][] test = {{'1', '1', '1'}, {'0', '1', '0'}, {'1', '0', '0'}, {'1', '0', '1'}};
+//        System.out.println(new NewSolution().numIslands(test));
+//    }
+
+//    leetcode200
+//    public int numIslands(char[][] grid) {
+//        int result = 0;
+//        for (int i = 0; i < grid.length; i++) {
+//            for (int j = 0; j < grid[0].length; j++) {
+//
+//                if (grid[i][j] == '1') {
+//                    result++;
+//                }
+//                visit(i, j, grid);
+//            }
+//        }
+//        return result;
+//    }
+//
+//    public void visit(int i, int j, char[][] grid) {
+//        if (i >= grid.length || i < 0 || j < 0 || j >= grid[0].length) return;
+//        if (grid[i][j] == '0') return;
+//        grid[i][j] = '0';
+//        visit(i + 1, j, grid);
+//        visit(i - 1, j, grid);
+//        visit(i, j - 1, grid);
+//        visit(i, j + 1, grid);
+//    }
+    
+//    leetcode 5
+//    public String longestPalindrome(String s) {
+//        boolean[][] dp = new boolean[s.length()][s.length()];
+//        int maxLen = 1;
+//        String ans = s.substring(0, 1);
+//        for (int k = 0; k < s.length(); k++) {
+//            for (int i = 0; i + k < s.length(); i++) {
+//                int j = i + k;
+//                if (k == 0) dp[i][i] = true;
+//                else if (k == 1 && s.charAt(i) == s.charAt(j)) {
+//                    dp[i][j] = true;
+//                } else if (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1]) {
+//                    dp[i][j] = true;
+//                }
+//                if (dp[i][j] && maxLen < k + 1) {
+//                    maxLen = k + 1;
+//                    ans = s.substring(i, j + 1);
+//                }
+//            }
+//        }
+//        return ans;
+//    }    
+    
+    
+//    leetcode131
+//    List<List<String>> result = new ArrayList<>();
+//    ArrayDeque<String> path = new ArrayDeque<>();
+//
+//    public List<List<String>> partition(String s) {
+//        boolean[][] dp = new boolean[s.length()][s.length()];
+//        for (int k = 0; k < s.length(); k++) {
+//            for (int i = 0; i + k < s.length(); i++) {
+//                int j = i + k;
+//                if (k == 0) dp[i][i] = true;
+//                else if (k == 1 && s.charAt(i) == s.charAt(j)) {
+//                    dp[i][j] = true;
+//                } else if (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1]) {
+//                    dp[i][j] = true;
+//                }
+//            }
+//        }
+//        getPartition(s, dp, 0);
+//        return result;
+//    }
+//
+//    public void getPartition(String s, boolean[][] dp, int start) {
+//        if (start >= s.length()) {
+//            result.add(new ArrayList<>(path));
+//            return;
+//        }
+//        for (int i = 0; start + i < s.length(); i++) {
+//            if (dp[start][start + i]) {
+//                path.add(s.substring(start, start + i + 1));
+//                getPartition(s, dp, start + i + 1);
+//                path.removeLast();
+//            }
+//        }
+//    }    
+    
+    
     
 //    leetcode 95    
 //    public List<TreeNode> generateTrees(int n) {
