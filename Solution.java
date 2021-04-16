@@ -10,6 +10,62 @@ import java.util.concurrent.*;
 
 public class Solution {
     
+    
+    //    leetcode 394
+//    public static void main(String[] args) {
+//        System.out.println(new NewSolution().decodeString("3[a2[c]]"));
+//    }
+//
+//
+//    public String decodeString(String s) {
+//        StringBuilder sb = new StringBuilder();
+//        int i = 0;
+//        while (i < s.length()) {
+//            char c = s.charAt(i);
+//            if (c >= '0' && c <= '9') {
+//                StringBuilder num = new StringBuilder();
+//                num.append(c);
+//                i++;
+//                while (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+//                    num.append(s.charAt(i));
+//                    i++;
+//                }
+//                i++;
+//                int number = Integer.parseInt(num.toString());
+//                StringBuilder sub = new StringBuilder("");
+//                int count = 0;
+//                while (!(count == 0 && s.charAt(i) == ']')) {
+//                    if (s.charAt(i) == '[') count++;
+//                    if (s.charAt(i) == ']') count--;
+//                    sub.append(s.charAt(i));
+//                    i++;
+//                }
+//                String subString = decodeString(sub.toString());
+//                for (int j = 0; j < number; j++) {
+//                    sb.append(subString);
+//                }
+//                i++;
+//                continue;
+//            }
+//            sb.append(c);
+//            i++;
+//        }
+//        return sb.toString();
+//    }
+
+
+//    leetcode 9
+//    public boolean isPalindrome(int x) {
+//        if (x < 0 || (x !=0 &&x % 10 == 0)) return false;
+//        int reverse = 0;
+//        int x1 = x;
+//        while (x1 > 0) {
+//            reverse = reverse * 10 + x1 % 10;
+//            x1 /= 10;
+//        }
+//        return reverse == x;
+//    }
+    
 //    leetcode124
 //    int result = Integer.MIN_VALUE;
 //
