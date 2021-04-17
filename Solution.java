@@ -11,7 +11,94 @@ import java.util.concurrent.*;
 public class Solution {
     
     
-    //    leetcode 394
+//    leetcode 146    
+//    HashMap<Integer, CacheNode> cache = new HashMap<>();
+//    CacheNode head = null;
+//    CacheNode tail = null;
+//    int cap;
+//    int size;
+//
+//
+//    public LRUCache(int capacity) {
+//        cap = capacity;
+//        size = 0;
+//    }
+//
+//    public int get(int key) {
+//        CacheNode n = cache.get(key);
+//        if (n != null) {
+//            moveToHead(n);
+//            return n.val;
+//        }
+//        return -1;
+//    }
+//
+//    public void put(int key, int value) {
+//        if (cache.containsKey(key)) {
+//            cache.get(key).val = value;
+//            moveToHead(cache.get(key));
+//        } else {
+//            CacheNode n = new CacheNode(value, key);
+//            if (size == cap) {
+//                cache.remove(tail.key);
+//                if (head == tail) {
+//                    head = null;
+//                    tail = null;
+//                } else {
+//                    tail = tail.pre;
+//                    tail.next = null;
+//                }
+//                size--;
+//            }
+//
+//            if (head == null) {
+//                head = n;
+//                tail = n;
+//            } else {
+//                head.pre = n;
+//                n.next = head;
+//                head = n;
+//            }
+//            size++;
+//            cache.put(key, n);
+//        }
+//    }
+//
+//    public void moveToHead(CacheNode node) {
+//        if (size == 1 || head == node) return;
+//        if (tail == node) {
+//            tail = node.pre;
+//            tail.next = null;
+//            node.pre = null;
+//            node.next = head;
+//            head.pre = node;
+//            head = node;
+//        } else {
+//            node.pre.next = node.next;
+//            node.next.pre = node.pre;
+//            node.pre = null;
+//            node.next = head;
+//            head.pre = node;
+//            head = node;
+//        }
+//    }
+//
+//    class CacheNode {
+//
+//        CacheNode next;
+//        CacheNode pre;
+//        int val;
+//        int key;
+//
+//        CacheNode(int v, int k) {
+//            val = v;
+//            key = k;
+//        }
+//
+//    }
+    
+    
+//    leetcode 394
 //    public static void main(String[] args) {
 //        System.out.println(new NewSolution().decodeString("3[a2[c]]"));
 //    }
