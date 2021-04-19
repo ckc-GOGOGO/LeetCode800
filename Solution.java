@@ -11,6 +11,278 @@ import java.util.concurrent.*;
 public class Solution {
     
     
+    
+    
+//    DST Leetcode 207
+//    public boolean canFinish(int numCourses, int[][] prerequisites) {
+//        List<Integer>[] courses = new List[numCourses];
+//        int[] visited = new int[numCourses];
+//        int count = 1;
+//        for (int i = 0; i < courses.length; i++) {
+//            courses[i] = new ArrayList<Integer>();
+//        }
+//        for (int[] prerequisite : prerequisites) {
+//            courses[prerequisite[0]].add(prerequisite[1]);
+//        }
+//
+//        for (int i = 0; i < courses.length; i++) {
+//            if (visited[i] != 0) continue;
+//            if (!visit(courses, visited, i)) return false;
+//        }
+//        return true;
+//    }
+//
+//    public boolean visit(List<Integer>[] courses, int[] visited, int courseNo) {
+//        if (visited[courseNo] == 1) return false;
+//        if (visited[courseNo] == -1) return true;
+//        visited[courseNo] = 1;
+//        List<Integer> course = courses[courseNo];
+//        for (int i = 0; i < course.size(); i++) {
+//            if (!visit(courses, visited, course.get(i))) return false;
+//        }
+//        visited[courseNo] = -1;
+//        return true;
+//    }
+
+
+//    leetcode 547
+//    public static void main(String[] args) {
+//        int[][] test = {{1,0,0,1},{0,1,1,0},{0,1,1,1},{1,0,1,1}};
+//        System.out.println(new NewSolution().findCircleNum(test));
+//    }
+//
+//
+//    public int findCircleNum(int[][] isConnected) {
+//        int count = 0;
+//        HashSet<Integer> connect = new HashSet<>();
+//        for (int i = 0; i < isConnected.length; i++) {
+//            if (connect.contains(i)) continue;
+//            count++;
+//            visit(isConnected, connect, i);
+//        }
+//        return count;
+//    }
+//
+//    public void visit(int[][] isConnected, HashSet<Integer> connect, int city) {
+//        if (connect.contains(city)) return;
+//        connect.add(city);
+//        for (int i = 0; i < isConnected[city].length; i++) {
+//            if (i == city) continue;
+//            if (isConnected[city][i] == 1) {
+//                visit(isConnected, connect, i);
+//            }
+//        }
+//    }
+
+//    leetcode 220
+//    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+//        HashMap<Long, Long> buckets = new HashMap<>();
+//        long w = (long) (t + 1);
+//        for (int i = 0; i < nums.length; i++) {
+//            long id = getId(nums[i], w);
+//            if (buckets.containsKey(id)) return true;
+//            if (buckets.containsKey(id + 1) && buckets.get(id + 1) - nums[i] <= t) return true;
+//            if (buckets.containsKey(id - 1) && nums[i] - buckets.get(id - 1) <= t) return true;
+//            buckets.put(id, (long)nums[i]);
+//            if (i >= k) buckets.remove(getId(nums[i - k], w));
+//        }
+//        return false;
+//    }
+//
+//    public long getId(long num, long w) {
+//        if (num >= 0) return num / w;
+//        return (num + 1) / w - 1;
+//    }
+
+
+//    leetcode 219
+//    public boolean containsNearbyDuplicate(int[] nums, int k) {
+//        HashMap<Integer, Integer> map = new HashMap<>();
+//        for (int i = 0; i < nums.length; i++) {
+//            if (map.containsKey(nums[i])) {
+//                int index = map.get(nums[i]);
+//                if (i - index <= k) return true;
+//            }
+//            map.put(nums[i], i);
+//        }
+//        return false;
+//    }
+
+
+//    leetcode 217
+//    public boolean containsDuplicate(int[] nums) {
+//        HashSet<Integer> set = new HashSet<>();
+//        for (int num : nums) {
+//            if (!set.add(num)) return true;
+//        }
+//        return false;
+//    }
+
+//    leetcode 721
+//    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+//        HashMap<String, String> emailName = new HashMap<>();
+//        HashMap<String, Integer> emailIndex = new HashMap<>();
+//        int count = 0;
+//        for (int i = 0; i < accounts.size(); i++) {
+//            List<String> account = accounts.get(i);
+//            String name = account.get(0);
+//            for (int j = 1; j < account.size(); j++) {
+//                String email = account.get(j);
+//                emailName.put(email, name);
+//                emailIndex.put(email, count);
+//                count++;
+//            }
+//        }
+//        UnionFind unionfind = new UnionFind(count);
+//        for (int i = 0; i < accounts.size(); i++) {
+//            List<String> account = accounts.get(i);
+//            int index = emailIndex.get(account.get(1));
+//            for (int j = 2; j < account.size(); j++) {
+//                String email = account.get(j);
+//                int index2 = emailIndex.get(email);
+//                unionfind.union(index, index2);
+//            }
+//        }
+//
+//        HashMap<Integer, List<String>> collect = new HashMap<>();
+//        for (String email : emailIndex.keySet()) {
+//            int index = emailIndex.get(email);
+//            int parent = unionfind.find(index);
+//            if (collect.containsKey(parent)) {
+//                List list = collect.get(parent);
+//                list.add(email);
+//            } else {
+//                List<String> list = new ArrayList<>();
+//                list.add(email);
+//                collect.put(parent, list);
+//            }
+//        }
+//        ArrayList<List<String>> result = new ArrayList<>();
+//        for (Integer key : collect.keySet()) {
+//            List<String> emails = collect.get(key);
+//            String name = emailName.get(emails.get(0));
+//            Collections.sort(emails);
+//            ArrayList<String> account = new ArrayList<>();
+//            account.add(name);
+//            account.addAll(emails);
+//            result.add(account);
+//        }
+//        return result;
+//    }
+//
+//    class UnionFind {
+//        int[] parent;
+//
+//        UnionFind(int cap) {
+//            parent = new int[cap];
+//            for (int i = 0; i < cap; i++) {
+//                parent[i] = i;
+//            }
+//        }
+//
+//        int find(int index) {
+//            if (parent[index] == index) return index;
+//            parent[index] = find(parent[index]);
+//            return parent[index];
+//        }
+//
+//        void union(int left, int right) {
+//            int parentLeft = find(left);
+//            int parentRight = find(right);
+//            parent[parentLeft] = parentRight;
+//        }
+//    }
+
+
+//    leetcode 679
+//    boolean result = false;
+//    static final double min = 1e-6;
+//    int count = 0;
+//
+//    public boolean judgePoint24(int[] nums) {
+//        ArrayList<Double> list = new ArrayList<>();
+//        for (int num : nums) {
+//            list.add((double) num);
+//        }
+//        judge(list);
+//        return result;
+//    }
+//
+//    public void judge(ArrayList<Double> list) {
+//        count++;
+//        if (list.size() == 1) {
+//            if (Math.abs(list.get(0) - 24) < min) result = true;
+//            return;
+//        }
+//
+//        for (int i = 0; i < list.size(); i++) {
+//            for (int j = 1; i + j < list.size(); j++) {
+//                ArrayList<Double> newList = new ArrayList<>();
+//                for (int k = 0; k < list.size(); k++) {
+//                    if (k != i && k != (i + j)) {
+//                        newList.add(list.get(k));
+//                    }
+//                }
+//                double n1 = list.get(i);
+//                double n2 = list.get(i + j);
+//
+//                newList.add(n1 + n2);
+//                judge(newList);
+//                newList.remove(newList.size() - 1);
+//
+//                newList.add(n1 * n2);
+//                judge((newList));
+//                newList.remove(newList.size() - 1);
+//
+//                newList.add(n1 - n2);
+//                judge((newList));
+//                newList.remove(newList.size() - 1);
+//                newList.add(n2 - n1);
+//                judge((newList));
+//                newList.remove(newList.size() - 1);
+//
+//                newList.add(n1 / n2);
+//                judge((newList));
+//                newList.remove(newList.size() - 1);
+//                newList.add(n2 / n1);
+//                judge((newList));
+//                newList.remove(newList.size() - 1);
+//            }
+//        }
+//
+//    }
+
+
+//    public boolean isPalindrome(ListNode head) {
+//        if (head.next == null) return true;
+//        ListNode p = head;
+//        ListNode q = head;
+//        while (q != null) {
+//            p = p.next;
+//            q = q.next;
+//            if (q == null) break;
+//            q = q.next;
+//        }
+//
+//        ListNode mid = p;
+//        ListNode a = p;
+//        ListNode b = p.next;
+//        while (b != null) {
+//            ListNode c = b.next;
+//            b.next = a;
+//            a = b;
+//            b = c;
+//        }
+//        mid.next = null;
+//
+//        while (a != null) {
+//            if (a.val != head.val) return false;
+//            a = a.next;
+//            head = head.next;
+//        }
+//        return true;
+//    }
+    
 //    leetcode 146    
 //    HashMap<Integer, CacheNode> cache = new HashMap<>();
 //    CacheNode head = null;
