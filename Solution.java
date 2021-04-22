@@ -12,6 +12,107 @@ public class Solution {
     
     
     
+//    public int majorityElement(int[] nums) {
+//        int candidate = -1;
+//        int count = 0;
+//        for (int num : nums) {
+//            if (count == 0) {
+//                candidate = num;
+//                count++;
+//            } else if (candidate == num) {
+//                count++;
+//            } else {
+//                count--;
+//            }
+//
+//        }
+//        return candidate;
+//    }
+
+//    public void solve(char[][] board) {
+//        for (int i = 0; i < board.length; i++) {
+//            if (board[i][0] != 'X' && board[i][0] != '1') visit(board, i, 0);
+//            if (board[i][board[0].length - 1] != 'X' && board[i][board[0].length - 1] != '1')
+//                visit(board, i, board[0].length - 1);
+//        }
+//
+//        for (int j = 0; j < board[0].length; j++) {
+//            if (board[0][j] != 'X' && board[0][j] != '1') visit(board, 0, j);
+//            if (board[board.length - 1][j] != 'X' && board[board.length - 1][j] != '1')
+//                visit(board, board.length - 1, j);
+//        }
+//
+//        for (int i = 0; i < board.length; i++) {
+//            for (int j = 0; j < board[0].length; j++) {
+//                if (board[i][j] == '1') {
+//                    board[i][j] = 'O';
+//                } else {
+//                    board[i][j] = 'X';
+//                }
+//            }
+//        }
+//    }
+//
+//    public void visit(char[][] board, int i, int j) {
+//        if (board[i][j] == 'X' || board[i][j] == '1') return;
+//        board[i][j] = '1';
+//        if (i > 0) {
+//            visit(board, i - 1, j);
+//        }
+//        if (i < board.length - 1) {
+//            visit(board, i + 1, j);
+//        }
+//        if (j > 0) {
+//            visit(board, i, j - 1);
+//        }
+//        if (j < board[0].length - 1) {
+//            visit(board, i, j + 1);
+//        }
+//    }
+
+//    leetcode 99
+//    public static void main(String[] args) {
+//        TreeNode root = new TreeNode(1);
+//        root.left = new TreeNode(3);
+//        root.left.right = new TreeNode(2);
+//        new NewSolution().recoverTree(root);
+//    }
+//
+//    public void recoverTree(TreeNode root) {
+//        List<TreeNode> list = new ArrayList<>();
+//        inOrder(root, list);
+//        int first = -1;
+//        int second = -1;
+//        for (int i = 0; i < list.size() - 1; i++) {
+//            if (list.get(i).val > list.get(i + 1).val) {
+//                if (first == -1) {
+//                    first = i;
+//                } else {
+//                    second = i;
+//                }
+//            }
+//        }
+//        if (second != -1) {
+//            second++;
+//            int tmp = list.get(first).val;
+//            list.get(first).val = list.get(second).val;
+//            list.get(second).val = tmp;
+//        } else {
+//            int tmp = list.get(first).val;
+//            list.get(first).val = list.get(first + 1).val;
+//            list.get(first + 1).val = tmp;
+//        }
+//    }
+//
+//    public void inOrder(TreeNode root, List<TreeNode> list) {
+//        if (root == null) return;
+//        inOrder(root.left, list);
+//        list.add(root);
+//        inOrder(root.right, list);
+//    }    
+    
+    
+    
     
 //    DST Leetcode 207
 //    public boolean canFinish(int numCourses, int[][] prerequisites) {
