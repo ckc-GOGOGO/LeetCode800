@@ -12,6 +12,345 @@ public class Solution {
     
     
     
+    //    public int minDepth(TreeNode root) {
+//        if (root == null) return 0;
+//        LinkedList<TreeNode> queue = new LinkedList<>();
+//        queue.add(root);
+//        int level = 1;
+//        int len;
+//        while ((len = queue.size()) != 0) {
+//            for (int i = 0; i < len; i++) {
+//                TreeNode node = queue.removeFirst();
+//                if (node.left == null && node.right == null) return level;
+//                if (node.left != null) queue.add(node.left);
+//                if (node.right != null) queue.add(node.right);
+//            }
+//            level++;
+//        }
+//        return level;
+//
+//    }
+
+//    public int numSquares(int n) {
+//        ArrayList<Integer> squares = new ArrayList<>();
+//        int[] dp = new int[n + 1];
+//        dp[0] = 0;
+//        dp[1] = 1;
+//        for (int i = 1; i * i <= n; i++) {
+//            squares.add(i * i);
+//        }
+//        for (int i = 2; i <= n; i++) {
+//            for (int square : squares) {
+//                if (square > i) break;
+//                else {
+//                    if (dp[i] == 0) {
+//                        dp[i] = dp[i - square] + 1;
+//                    } else {
+//                        dp[i] = Math.min(dp[i - square] + 1, dp[i]);
+//                    }
+//                }
+//            }
+//        }
+//        return dp[n];
+//
+//    }
+
+//    public int numSquares(int n) {
+//        ArrayList<Integer> squares = new ArrayList<>();
+//        for (int i = 0; i * i <= n; i++) {
+//            squares.add(i * i);
+//        }
+//        HashSet<Integer> queue = new HashSet<>();
+//        queue.add(n);
+//        int level = 1;
+//        while (queue.size() > 0) {
+//            HashSet<Integer> newQueue = new HashSet<>();
+//            for (Integer candidate : queue) {
+//                for (Integer square : squares) {
+//                    if (candidate.equals(square)) return level;
+//                    if (square > candidate) break;
+//                    newQueue.add(candidate - square);
+//                }
+//            }
+//            level++;
+//            queue = newQueue;
+//        }
+//
+//        return level;
+//    }
+
+//    public static void main(String[] args) {
+//        String[] test = {"hot", "dot", "dog", "lot", "log", "cog"};
+//        System.out.println(new NewSolution().ladderLength("hit", "cog", Arrays.asList(test)));
+//    }
+//
+//    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+//        List<List<Integer>> adjacent = new ArrayList<>();
+//        HashMap<String, Integer> map = new HashMap<>();
+//        int count = 0;
+//
+//        adjacent.add(new ArrayList<>());
+//        map.put(beginWord, count);
+//        count++;
+//        StringBuilder beginSb = new StringBuilder(beginWord);
+//        for (int i = 0; i < beginWord.length(); i++) {
+//            char originC = beginSb.charAt(i);
+//            beginSb.setCharAt(i, '*');
+//            adjacent.add(new ArrayList<>());
+//            map.put(beginSb.toString(), count);
+//            count++;
+//            adjacent.get(map.get(beginWord)).add(map.get(beginSb.toString()));
+//            adjacent.get(map.get(beginSb.toString())).add(map.get(beginWord));
+//            beginSb.setCharAt(i, originC);
+//        }
+//
+//        for (String word : wordList) {
+//            adjacent.add(new ArrayList<>());
+//            map.put(word, count);
+//            count++;
+//            StringBuilder sb = new StringBuilder(word);
+//            for (int i = 0; i < sb.length(); i++) {
+//                char originC = sb.charAt(i);
+//                sb.setCharAt(i, '*');
+//                if (!map.containsKey(sb.toString())) {
+//                    adjacent.add(new ArrayList<>());
+//                    map.put(sb.toString(), count);
+//                    count++;
+//                }
+//                adjacent.get(map.get(word)).add(map.get(sb.toString()));
+//                adjacent.get(map.get(sb.toString())).add(map.get(word));
+//                sb.setCharAt(i, originC);
+//            }
+//        }
+//        if (!map.containsKey(endWord)) return 0;
+//        HashSet<Integer> visit = new HashSet<>();
+//        LinkedList<Integer> queue = new LinkedList<>();
+//        queue.add(map.get(beginWord));
+//        int target = map.get(endWord);
+//        int depth = 0;
+//        int len;
+//
+//        while ((len = queue.size()) > 0) {
+//            for (int i = 0; i < len; i++) {
+//                int index = queue.removeFirst();
+//                visit.add(index);
+//                if (index == target) return depth / 2 + 1;
+//                for (int j = 0; j < adjacent.get(index).size(); j++) {
+//                    if (!visit.contains(adjacent.get(index).get(j))) {
+//                        queue.add(adjacent.get(index).get(j));
+//                    }
+//                }
+//            }
+//            depth++;
+//        }
+//        return 0;
+//    }
+
+//    public static void main(String[] args) {
+//        int[][] test = {{1, 2, 7}, {3, 6, 7}};
+//
+//        System.out.println(new NewSolution().numBusesToDestination(test, 1, 6));
+//    }
+//
+//
+//    public int numBusesToDestination(int[][] routes, int source, int target) {
+//        if (source == target) return 0;
+//        List<List<Integer>> adjacent = new ArrayList<>();
+//        HashSet<Integer> visit = new HashSet<>();
+//        HashSet<Integer> targetBus = new HashSet<>();
+//        for (int[] route : routes) {
+//            adjacent.add(new ArrayList<>());
+//            Arrays.sort(route);
+//        }
+//
+//        for (int i = 0; i < routes.length; i++) {
+//            for (int j = i + 1; j < routes.length; j++) {
+//                if (intersect(routes[i], routes[j])) {
+//                    adjacent.get(i).add(j);
+//                    adjacent.get(j).add(i);
+//                }
+//            }
+//        }
+//
+//        LinkedList<Integer> queue = new LinkedList<>();
+//
+//        for (int i = 0; i < routes.length; i++) {
+//            int[] route = routes[i];
+//            if (Arrays.binarySearch(route, target) >= 0) {
+//                targetBus.add(i);
+//            }
+//            if (Arrays.binarySearch(route, source) >= 0) {
+//                visit.add(i);
+//                queue.add(i);
+//            }
+//        }
+//
+//        int num = 1;
+//        int len;
+//        while ((len = queue.size()) != 0) {
+//            for (int i = 0; i < len; i++) {
+//                int route = queue.removeFirst();
+//                if (targetBus.contains(route)) {
+//                    return num;
+//                }
+//                for (int j = 0; j < adjacent.get(route).size(); j++) {
+//                    if (!visit.contains(adjacent.get(route).get(j))) {
+//                        visit.add(adjacent.get(route).get(j));
+//                        queue.add(adjacent.get(route).get(j));
+//                    }
+//                }
+//            }
+//            num++;
+//        }
+//
+//        return -1;
+//    }
+//
+//    public boolean intersect(int[] a, int[] b) {
+//        int i = 0;
+//        int j = 0;
+//        while (i < a.length && j < b.length) {
+//            if (a[i] == b[j]) return true;
+//            else if (a[i] > b[j]) j++;
+//            else i++;
+//        }
+//        return false;
+//    }
+
+
+//    public int minimumEffortPath(int[][] heights) {
+//        List<int[]> edges = new ArrayList<>();
+//        for (int i = 0; i < heights.length; i++) {
+//            for (int j = 0; j < heights[0].length; j++) {
+//                int point = i * heights[0].length + j;
+//                if (i != 0) {
+//                    int[] edge = new int[3];
+//                    edge[0] = point;
+//                    edge[1] = (i - 1) * heights[0].length + j;
+//                    edge[2] = Math.abs(heights[i][j] - heights[i - 1][j]);
+//                    edges.add(edge);
+//                }
+//                if (j != 0) {
+//                    int[] edge = new int[3];
+//                    edge[0] = point;
+//                    edge[1] = i * heights[0].length + j - 1;
+//                    edge[2] = Math.abs(heights[i][j] - heights[i][j - 1]);
+//                    edges.add(edge);
+//                }
+//            }
+//        }
+//
+//        Collections.sort(edges, new Comparator<int[]>() {
+//            @Override
+//            public int compare(int[] o1, int[] o2) {
+//                return o1[2] - o2[2];
+//            }
+//        });
+//
+//        UnionFind u = new UnionFind(heights.length * heights[0].length);
+//        int result = 0;
+//        for (int[] edge : edges) {
+//            u.union(edge[0], edge[1]);
+//            if (u.find(0) == u.find(heights.length * heights[0].length - 1)) {
+//                result = edge[2];
+//                break;
+//            }
+//        }
+//        return result;
+//
+//    }
+//
+//    class UnionFind {
+//        int[] parent;
+//        int[] size;
+//
+//        UnionFind(int cap) {
+//            parent = new int[cap];
+//            size = new int[cap];
+//            for (int i = 0; i < cap; i++) {
+//                parent[i] = i;
+//                size[i] = 1;
+//            }
+//        }
+//
+//        int find(int index) {
+//            if (parent[index] != index) {
+//                return parent[index] = find(parent[index]);
+//            }
+//            return index;
+//        }
+//
+//        void union(int left, int right) {
+//            int leftParent = find(left);
+//            int rightParent = find(right);
+//            if (size[leftParent] > size[rightParent]) {
+//                int tmp = leftParent;
+//                leftParent = rightParent;
+//                rightParent = tmp;
+//            }
+//            parent[leftParent] = parent[rightParent];
+//            size[rightParent] += size[leftParent];
+//        }
+//    }
+
+
+//    public int longestConsecutive(int[] nums) {
+//        HashSet<Integer> set = new HashSet<>();
+//        int max = 0;
+//        for (int num : nums) {
+//            set.add(num);
+//        }
+//
+//
+//        for (int num : nums) {
+//            if (!set.contains(num - 1)) {
+//                int len = 1;
+//                int next = num + 1;
+//                while (set.contains(next)) {
+//                    len++;
+//                    next++;
+//                }
+//                max = Math.max(max, len);
+//            }
+//        }
+//        return max;
+//    }
+
+
+//    public int[] findOrder(int numCourses, int[][] prerequisites) {
+//        int[] result = new int[numCourses];
+//        int[] empty = {};
+//        int[] inDegree = new int[numCourses];
+//        List<List<Integer>> adjacent = new ArrayList<>();
+//        for (int i = 0; i < numCourses; i++) {
+//            adjacent.add(new ArrayList<>());
+//        }
+//
+//        for (int[] prerequisite : prerequisites) {
+//            inDegree[prerequisite[0]]++;
+//            adjacent.get(prerequisite[1]).add(prerequisite[0]);
+//        }
+//
+//        LinkedList<Integer> queue = new LinkedList<>();
+//        int count = 0;
+//        for (int i = 0; i < inDegree.length; i++) {
+//            if (inDegree[i] == 0) queue.addLast(i);
+//        }
+//
+//        while (queue.size() > 0) {
+//            int course = queue.poll();
+//            result[count] = course;
+//            count++;
+//            for (int i = 0; i < adjacent.get(course).size(); i++) {
+//                int index = adjacent.get(course).get(i);
+//                inDegree[index]--;
+//                if (inDegree[index] == 0) queue.addLast(index);
+//            }
+//        }
+//
+//        return count == numCourses ? result : empty;
+//    }
+    
 //    public int majorityElement(int[] nums) {
 //        int candidate = -1;
 //        int count = 0;
